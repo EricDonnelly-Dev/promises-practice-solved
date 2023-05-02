@@ -15,6 +15,20 @@
  */
 
 // Your code goes here
+const executor = (resolve, reject) => {
+    setTimeout(() => {
+        resolve('The PROMISE was RESOLVED');
+    }, 1000);
+}
+    export const getPromise = new Promise(executor);
+
+
+    getPromise.then((value) => {
+        console.log(value);
+        return value;
+    })
+
+// Your code ends here
 
 
 
