@@ -8,8 +8,10 @@
  *          export const Promise 
 */
 
-export const attachTitle = () => {
+export const attachTitle = (input) => {
   // Your code goes here...
+  const prefix = `DR. `;
+  return prefix + input;
 }
 
 /**
@@ -22,7 +24,12 @@ export const attachTitle = () => {
 
 export const getPromise = () => {
   // Your code goes here...
-
+ const promise = new Promise((resolve, reject) => {
+  resolve('MANHATTAN');
+  });
+  return promise
+  .then((val) => attachTitle(val))
+  .then((val) => console.log(val));
 } 
 
 
