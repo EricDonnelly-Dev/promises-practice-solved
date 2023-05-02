@@ -17,10 +17,10 @@
 
 export const getPromise = (bool) => {
   // Your code goes here...
-  return new Promise((resolve, reject) => {
-    bool ? resolve('The PROMISE was RESOLVED') : reject('The PROMISE was REJECTED');
-  }
-  )
+  return new Promise((resolve, reject) => { bool 
+    ? resolve('The PROMISE was RESOLVED') 
+    : reject('The PROMISE was REJECTED');
+  })
 };
 
 /**

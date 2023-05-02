@@ -21,13 +21,20 @@ const second = (val) => {
  */
 
 // Refactor the following code...
-export const handlePromise = first();
-const secondPromise = handlePromise.then((val) => val);
-const final = secondPromise.then((res) => second(res));
-final.then((val) => {
-  console.log(val);
-  return(val);
+export const handlePromise = first()
+.then((val) => val)
+.then((res)=> second(res))
+.then((final) => {
+  console.log(final);
+  return final;
 });
+
+// const secondPromise = handlePromise.then((val) => val);
+// const final = secondPromise.then((res) => second(res));
+// final.then((val) => {
+//   console.log(val);
+//   return(val);
+// });
 
 
 
