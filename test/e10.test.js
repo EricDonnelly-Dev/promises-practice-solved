@@ -43,8 +43,8 @@ describe('Result4 variable test', () => {
 
 describe('Result1 promise test', () => {
   it("Result1 should return a resolved value of 'Promise 2 REJECTED'", async () => {
-    await result1;
-    expect(result1).resolves.toEqual('Promise 2 REJECTED');
+
+    expect(await result1).toEqual('Promise 2 REJECTED');
   });
 });
 
@@ -70,8 +70,7 @@ describe('Result3 promise test', () => {
   ];
 
   it('Result3 should return a resolved value of the array of all promises status and value', async () => {
-    await result3;
-    expect(result3).resolves.toEqual(sampleData);
+    expect(await result3).toEqual(sampleData);
   });
 });
 

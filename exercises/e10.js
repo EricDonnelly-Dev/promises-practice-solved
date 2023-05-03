@@ -18,7 +18,9 @@ const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 export const result1 = Promise.all(promiseArr)
-.catch((err) => console.log(err.mesage)); 
+.catch((err) => {
+  console.log(err)
+  return err}); 
 
 /**
  * @task
@@ -26,7 +28,10 @@ export const result1 = Promise.all(promiseArr)
  */
 
 export const result2 = Promise.any(promiseArr)
-.then((val) => console.log(val)); 
+.then((val) =>{
+  console.log(val);
+  return val;
+}); 
 
 /**
  * @task
@@ -35,8 +40,11 @@ export const result2 = Promise.any(promiseArr)
  */
 
 export const result3 = Promise.allSettled(promiseArr)
-.then((val) => console.log(val))
-.catch((err) => console.log(err));
+.then((val) => {
+  console.log(val);
+  return val
+})
+//.catch((err) => console.log(err));
 
 /**
  * @task
