@@ -14,6 +14,7 @@
 */
 
 export const usersUrl = 'http://localhost:3000/users/';
+import fetch from 'node-fetch'; 
 
 /**
  * @task
@@ -26,9 +27,15 @@ export const usersUrl = 'http://localhost:3000/users/';
  * Example: const getLoginList = (data) => {<Your code>}
 */
 
-const getLoginList = () => {
-  // Your code goes here...
-
+const getLoginList = (data) => {
+  // Convert the data to an array of objects
+  const dataLogins = [];
+  for (const [key,value] of Object.entries(data)) {
+    dataLogins.push([`${key}`,`${value}`]);
+  }
+  // Return the array of logins and log it in the console.
+  console.log('Datalogins : '+ dataLogins);
+  return dataLogins;
 }
 
 /**
@@ -39,7 +46,7 @@ const getLoginList = () => {
 */
 
 // Your code goes here ...
-const getData;
+const getData = fetch(usersUrl);
 
 /**
  * @task 
@@ -53,7 +60,13 @@ const getData;
 */
 
 // Your code goes here ...
-export const result = getData;
+export const result = getData
+.then((val) => getLoginList(val.json()))
+.then((val) => {
+  console.log('The PROMISE was RESOLVED');
+  console.log(val);
+  return val;
+});
 
 
 // === TEST YOURSELF ===
