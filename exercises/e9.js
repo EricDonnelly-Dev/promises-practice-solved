@@ -41,7 +41,6 @@ export function alwaysThrows() {
 
 export function onReject(err) {
   // Your code goes here...
-  console.log(typeof err);
   typeof err === 'object'? console.log(err.message): console.log(err); 
  
 }

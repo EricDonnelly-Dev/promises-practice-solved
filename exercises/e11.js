@@ -27,14 +27,15 @@ import fetch from 'node-fetch';
  * Example: const getLoginList = (data) => {<Your code>}
 */
 
+
+
 const getLoginList = (data) => {
   // Convert the data to an array of objects
   const dataLogins = [];
-  for (const [key,value] of Object.entries(data)) {
-    dataLogins.push([`${key}`,`${value}`]);
+  for (let i = 0; i < data.length; i++) {
+    dataLogins.push(data[i].login);
   }
   // Return the array of logins and log it in the console.
-  console.log('Datalogins : '+ dataLogins);
   return dataLogins;
 }
 
@@ -46,7 +47,7 @@ const getLoginList = (data) => {
 */
 
 // Your code goes here ...
-const getData = fetch(usersUrl);
+const getData = fetch(usersUrl).then((res) => res.json());
 
 /**
  * @task 
@@ -61,7 +62,7 @@ const getData = fetch(usersUrl);
 
 // Your code goes here ...
 export const result = getData
-.then((val) => getLoginList(val.json()))
+.then((val) => getLoginList(val))
 .then((val) => {
   console.log('The PROMISE was RESOLVED');
   console.log(val);

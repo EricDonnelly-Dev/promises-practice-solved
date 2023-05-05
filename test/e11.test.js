@@ -23,7 +23,7 @@ describe('Promise is settled as resolved', () => {
 
   it("Promise should resolve with a message of 'The PROMISE was RESOLVED'", async () => {
     await result;
-    console.log(result);
+    
     expect(result).resolves.toEqual(dataArrSample);
   });
 });
